@@ -31,6 +31,12 @@ def power(base, exponent):
     else:
         for num in range (0, quotient):
             return_value = return_value * cube(base)
+        remainder = exponent % 3
+        if remainder == 1:
+            return_value = return_value * base
+        elif remainder ==2:
+            return_value = return_value * base * base
+
 
     return return_value
 
@@ -42,8 +48,20 @@ def power(base, exponent):
                 #return...
             #if expo odd
                 #return...
+# this is the end of the function power
+
+def mod(divisor, dividend):
+    return divisor % dividend  # this will return the remainder
+
 def main():
-    print power(2,7)
+    print power(2,0), 0
+    print power(2,1), 1
+    print power(2,2), 2
+    print power(2,3), 3
+    print power(2,4), 4
+    print power(2,7), 7
+    print power(2,8), 8
+    print power(2,19), 19
 
 
 main()
