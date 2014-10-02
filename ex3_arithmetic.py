@@ -1,60 +1,53 @@
-def add(x , y):
-    return x + y
-def subtract(x, y):
-    return x - y
-def multiply(x, y):
-    return x * y
-
-def divide(divisor, dividend):
-    # this only returns the quotient not the remainder
-    return divisor / dividend  
-
-    return square(base) * base
-
-def cube(x):
-    return x ** 3
-
-def power(base, exponent):
-    
-    return_value = 1
-    quotient = exponent / 3
-
-    if quotient == 0:
-        remainder = exponent % 3
-
-        if remainder == 0:
-            return_value = 1
-        elif remainder == 1:
-            return_value = base
-        else:
-            return_value = base * base
-    else:
-        for num in range (0, quotient):
-            return_value = return_value * cube(base)
-        remainder = exponent % 3
-        if remainder == 1:
-            return_value = return_value * base
-        elif remainder ==2:
-            return_value = return_value * base * base
-
-
-    return return_value
-
-            #base ** exponent
-
-            # if expo 1
-               #return base
-            #if expo even
-                #return...
-            #if expo odd
-                #return...
-# this is the end of the function power
-
-def mod(divisor, dividend):
-    return divisor % dividend  # this will return the remainder
+import arithmetic
 
 def main():
-    
 
+    print "This is a program to do math equations."
+    print " "
+    print "Input pattern as follows"
+    print " addition - add, int, int"
+    print " sub - sub, int, int"
+    print " multi  - ...."
+    print " squ - squ, int"
+    print "cube- cube, int"
+    print "etc..."
+    print "If you want to quit, type 'q'"
 
-main()
+   
+    while True:
+        userInput = raw_input("What kind of calculation would you like to perform?   ")
+
+        tokens = userInput.split(",") #token[pow, 2, 3]
+  
+
+        if tokens[0] == 'add':
+            print add(int(tokens[1]), int(tokens[2]))
+        elif tokens[0] == 'sub':
+            print sub(int(tokens[1]), int(tokens[2]))
+        elif tokens[0] == 'multi':
+            print multiply(int(tokens[1]), int(tokens[2]))
+        elif tokens[0] == 'divide':
+            print divide(int(tokens[1]), int(tokens[2]))
+        elif tokens[0] == 'squ':
+            print square(int(tokens[1]))
+        elif tokens[0] == 'pow':
+            print power(int(tokens[1]), int(tokens[2]))
+        elif tokens[0] == 'mod':
+            print mod(int(tokens[1]), int(tokens[2]))
+        elif tokens[0] == 'cube':
+            print cube(int(tokens[1]))
+        elif tokens[0] == 'q':
+            break
+        else:
+            print "What do you want to do??"
+
+        #tokens[0] = 'q'
+#### the way Nadine, thinking was elif tokens[0] == 'q' ; break...is not good because it's "spag. code"
+# doing it the negative way != q, allows the while loop to check 'q' and prevent the "what do you want to do"
+#statement from printing. And it gives the while loop 1 exit point
+
+#use int because string is given in raw_input
+
+# setting array to [" "] to initialize the array
+
+main() 
